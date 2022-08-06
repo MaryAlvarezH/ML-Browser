@@ -8,6 +8,11 @@
   --gallery: #eeeeee;
 }
 
+body {
+  background-color: var(--gallery) !important;
+  color: var(--black) !important;
+}
+
 .main-container {
   padding-top: 1rem;
   padding-bottom: 1rem;
