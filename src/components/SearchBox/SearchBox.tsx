@@ -2,7 +2,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IoSearchOutline } from "react-icons/io5";
 import "./styles.scss";
-import { Button } from "react-bootstrap";
 
 type SearchInput = {
   search: string;
@@ -21,6 +20,7 @@ export const SearchBox = () => {
           <Col xs lg="2">
             <img
               className="logo"
+              alt="Mercado libre"
               src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.19.1/mercadolibre/logo__large_plus@2x.png"
             />
           </Col>
