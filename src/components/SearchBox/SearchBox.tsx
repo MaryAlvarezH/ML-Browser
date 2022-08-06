@@ -6,10 +6,15 @@ type SearchInput = {
   search: string;
 };
 
-export const SearchBox = () => {
+interface SearchBoxProps {
+  onSearch: (value: string) => void;
+}
+
+export const SearchBox = ({ onSearch }: SearchBoxProps) => {
   const { register, handleSubmit } = useForm<SearchInput>();
+
   const onSubmit: SubmitHandler<SearchInput> = (data) => {
-    console.log(data);
+    onSearch(data.search);
   };
 
   return (
