@@ -1,0 +1,15 @@
+.search-box-container {
+  background-color: var(--yellow);
+  height: 3rem;
+  width: 100%;
+  position: relative;
+
+  .logo {
+    width: 8.375rem;
+    height: 2.125rem;
+  }
+
+  //   input {
+  //     width: calc(100% - 5rem);
+  //   }
+}

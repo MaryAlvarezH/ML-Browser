@@ -6,11 +6,12 @@ import { Home } from "./pages/Home/Home";
 import { SearchResults } from "./pages/SearchResults/SearchResults";
 import { ItemDetails } from "./pages/ItemDetails/ItemDetails";
 import { Container } from "react-bootstrap";
+import { Navbar } from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <>
-      <SearchBox />
+      <Navbar />
 
       <Container className="main-container">
         <Routes>
