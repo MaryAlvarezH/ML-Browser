@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ItemsFinderContainer } from "./components/ItemsFinderContainer/ItemsFinderContainer";
 
