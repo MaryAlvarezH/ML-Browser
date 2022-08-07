@@ -2,13 +2,9 @@ import { Col, Container, Row } from "react-bootstrap";
 import { SearchBox } from "../SearchBox/SearchBox";
 import "./styles.scss";
 
-interface NavbarProps {
-  onSearch: (value: string) => void;
-}
-
-export const Navbar = ({ onSearch }: NavbarProps) => {
+export const Navbar = ({ ...props }) => {
   return (
-    <div className="search-box-container d-flex align-items-center">
+    <div className="search-box-container d-flex align-items-center" {...props}>
       <Container>
         <Row>
           <Col xs lg="2">
@@ -19,7 +15,7 @@ export const Navbar = ({ onSearch }: NavbarProps) => {
             />
           </Col>
           <Col xs lg="10">
-            <SearchBox onSearch={onSearch} />
+            <SearchBox />
           </Col>
         </Row>
       </Container>
