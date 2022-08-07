@@ -1,4 +1,4 @@
-export interface Item {
+export interface ItemPreview {
   id: string;
   title: string;
   price: {
@@ -9,4 +9,9 @@ export interface Item {
   picture: string;
   condition: string;
   free_shipping: boolean;
+}
+
+export interface ItemDetails extends ItemPreview {
+  sold_quantity: number;
+  description: string;
 }
