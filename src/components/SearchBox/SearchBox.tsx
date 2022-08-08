@@ -22,7 +22,7 @@ export const SearchBox = ({ ...props }) => {
   useEffect(() => {
     const search: any = searchParams.get("search");
     setSearch(search);
-  }, [searchParams.get("search")]);
+  }, [searchParams]);
 
   const onSubmit: SubmitHandler<SearchInput> = (data) => {
     const { search } = data;

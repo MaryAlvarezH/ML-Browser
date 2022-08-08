@@ -1,0 +1,9 @@
+div.categories-container {
+  color: var(--dusty-gray);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+span.category-name {
+  flex-shrink: 0;
+}

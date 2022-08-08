@@ -15,3 +15,12 @@ export interface ItemDetails extends ItemPreview {
   sold_quantity: number;
   description: string;
 }
+
+export interface SearchResults {
+  author: {
+    name: string;
+    lastname: string;
+  };
+  categories: string[];
+  items: ItemPreview[];
+}

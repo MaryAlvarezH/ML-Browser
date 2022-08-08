@@ -4,7 +4,7 @@ import "./styles.scss";
 
 export const Navbar = ({ ...props }) => {
   return (
-    <div className="search-box-container d-flex align-items-center" {...props}>
+    <div className="navbar-container d-flex align-items-center" {...props}>
       <Container>
         <Row>
           <Col xs lg="2">
