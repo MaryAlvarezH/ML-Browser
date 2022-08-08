@@ -24,9 +24,13 @@ export const ItemPreview = ({ item, ...props }: ItemPreviewProps) => {
       <div className="d-flex">
         <img className="item-image" src={item.picture} alt={item.id} />
         <div className="item-details">
-          <span className="item-price">
-            {parseToCurrency(item.price.amount, item.price.currency)}
-          </span>
+          <div className="item-main-info">
+            <span className="item-price">
+              {parseToCurrency(item.price.amount, item.price.currency)}
+            </span>
+            {item.free_shipping && <span className="item-free-shipping"></span>}
+          </div>
+
           <span className="item-title">{item.title}</span>
         </div>
       </div>

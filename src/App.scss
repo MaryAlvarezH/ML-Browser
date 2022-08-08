@@ -8,9 +8,29 @@
   --gallery: #eeeeee;
 }
 
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../src/assets/fonts/proximanova-light.woff2");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../src/assets/fonts/proximanova-regular.woff2");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../src/assets/fonts/proximanova-semibold.woff2");
+  font-weight: 500;
+}
+
 body {
   background-color: var(--gallery) !important;
   color: var(--black) !important;
+  font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif,
+    sans-serif !important;
 }
 
 .main-container {

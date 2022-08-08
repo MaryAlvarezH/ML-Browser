@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { IoSearchOutline } from "react-icons/io5";
 import {
   createSearchParams,
   useNavigate,
@@ -37,14 +36,20 @@ export const SearchBox = ({ ...props }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} {...props}>
+    <form
+      className="search-form d-flex justify-content-between align-items-center"
+      onSubmit={handleSubmit(onSubmit)}
+      {...props}
+    >
       <input
+        autoComplete="off"
+        className="search-input"
         defaultValue={search}
-        placeholder="Buscar productos, marcas y más..."
+        placeholder="Nunca dejes de buscar"
         {...register("search")}
       />
-      <button type="submit">
-        <IoSearchOutline />
+      <button className="search-button" type="submit">
+        <span className="search-icon"></span>
       </button>
     </form>
   );

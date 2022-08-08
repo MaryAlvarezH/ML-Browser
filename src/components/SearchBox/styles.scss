@@ -1,3 +1,41 @@
-input {
-  width: calc(100% - 5rem);
+form.search-form {
+  background-color: var(--white);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.125rem;
+  padding: 0.5rem 1rem;
+  height: 2.5rem;
+  width: 100%;
+
+  input.search-input {
+    border: none;
+    border-right: 1px solid var(--gallery);
+    font-size: 1rem;
+    height: 1.5rem;
+    padding: 0;
+    width: calc(100% - 2.5rem);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button.search-button {
+    background-color: var(--white);
+    border: none;
+    height: 1.5rem;
+    width: 1.5rem;
+
+    span.search-icon {
+      background-image: url("../../assets/images/ic_Search@2x.png.png");
+      background-repeat: no-repeat;
+      background-size: 1rem 1rem;
+      display: block;
+      height: 1rem;
+      width: 1rem;
+
+      @media screen and (max-width: 600px) {
+        background-image: url("../../assets/images/ic_Search.png");
+      }
+    }
+  }
 }

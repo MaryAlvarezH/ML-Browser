@@ -42,7 +42,7 @@ export const ItemDetails = () => {
                 alt={item?.title}
               />
             </Col>
-            <Col lg={{ span: 3, offset: 1 }}>
+            <Col lg={{ span: 4, offset: 1 }}>
               <div className="item-info d-flex flex-column">
                 <span className="conditions">
                   {parseItemConditions(item?.condition)} - {item?.sold_quantity}
@@ -59,7 +59,10 @@ export const ItemDetails = () => {
             <Col>
               <div className="item-description-container">
                 <span className="title">Descripción del producto</span>
-                <p className="description">{item?.description}</p>
+
+                <p className="description" style={{ whiteSpace: "pre-line" }}>
+                  {item?.description}
+                </p>
               </div>
             </Col>
           </Row>
