@@ -2,13 +2,13 @@ import axios from "axios";
 import { isEmpty } from "lodash";
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../utils/constants";
+import { parseItemConditions, parseToCurrency } from "../../utils/functions";
 import { ItemDetails as ItemDetailsType } from "../../utils/types";
 import "./styles.scss";
 
 export const ItemDetails = () => {
-  const location = useLocation();
   const params = useParams();
   const [item, setItem] = useState<ItemDetailsType>();
 
@@ -17,7 +17,7 @@ export const ItemDetails = () => {
       const itemID: string = params.id;
       getItemDetails(itemID);
     }
-  }, [location]);
+  }, [params.id]);
 
   const getItemDetails = (itemID: string) => {
     axios
@@ -45,10 +45,12 @@ export const ItemDetails = () => {
             <Col lg={{ span: 3, offset: 1 }}>
               <div className="item-info d-flex flex-column">
                 <span className="conditions">
-                  {item?.condition} - {item?.sold_quantity}
+                  {parseItemConditions(item?.condition)} - {item?.sold_quantity}
                 </span>
                 <span className="name">{item?.title}</span>
-                <span className="price">{item?.price.amount}</span>
+                <span className="price">
+                  {parseToCurrency(item?.price.amount, item?.price.currency)}
+                </span>
                 <button className="primary">Comprar</button>
               </div>
             </Col>
