@@ -1,0 +1,23 @@
+.search-resque-container {
+  background-color: var(--white);
+  border-radius: 0.25rem;
+  padding: 2.625rem 2.5rem 2rem;
+
+  .search-resque-details {
+    gap: 2rem;
+
+    .icon {
+      height: 5rem;
+      flex-shrink: 0;
+      width: 5rem;
+    }
+
+    @media screen and(max-width: 600px) {
+      flex-direction: column;
+
+      .icon {
+        align-self: center;
+      }
+    }
+  }
+}
