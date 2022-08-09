@@ -1,0 +1,31 @@
+.item-preview-skeleton-container {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gallery);
+  padding: 1rem 0;
+
+  div.item-image {
+    border-radius: 0.25rem;
+    flex-shrink: 0;
+    height: 7rem;
+    margin-right: 1rem;
+    width: 7rem;
+  }
+
+  div.item-details {
+    padding: 1rem 0.5rem;
+    width: 100%;
+
+    span.item-price {
+      display: block;
+      height: 2.25rem;
+      margin-bottom: 2rem;
+      width: 8rem;
+    }
+
+    span.item-title {
+      display: block;
+      height: 1.5rem;
+      width: 80%;
+    }
+  }
+}

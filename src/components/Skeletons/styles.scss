@@ -1,0 +1,50 @@
+// gradient
+$skeleton-gradient: linear-gradient(
+  to right,
+  var(--gallery) 8%,
+  var(--alto) 18%,
+  var(--gallery) 23%
+);
+
+// animation
+@keyframes progressive-movement {
+  0% {
+    background-position: -368px 0;
+  }
+  100% {
+    background-position: 368px 0;
+  }
+}
+
+@mixin basic-skeleton {
+  animation-duration: 1s !important;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: progressive-movement;
+  animation-timing-function: linear;
+  background: var(--gallery);
+  background: $skeleton-gradient;
+
+  background-size: 800px 104px;
+}
+
+.skeleton {
+  @include basic-skeleton;
+  border-radius: 0.125rem;
+  height: 0.875rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  width: 100%;
+
+  &.title {
+    width: 25%;
+  }
+  &.subtitle {
+    width: 20%;
+  }
+
+  &.dark {
+    background: var(--silver);
+    animation: none;
+  }
+}
