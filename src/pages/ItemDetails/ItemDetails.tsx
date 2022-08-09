@@ -3,7 +3,14 @@ import { isEmpty } from "lodash";
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { SearchResqueMessage } from "../../components/SearchResqueMessage/SearchResqueMessage";
+import { ItemDetailsSkeleton } from "../../components/Skeletons/ItemDetailsSkeleton/ItemDetailsSkeleton";
 import { BASE_URL } from "../../utils/constants";
+import {
+  RequestStatus,
+  SearchResqueTypes,
+  SearchTypes,
+} from "../../utils/enums";
 import { parseItemConditions, parseToCurrency } from "../../utils/functions";
 import { ItemDetails as ItemDetailsType } from "../../utils/types";
 import "./styles.scss";
@@ -11,6 +18,7 @@ import "./styles.scss";
 export const ItemDetails = () => {
   const params = useParams();
   const [item, setItem] = useState<ItemDetailsType>();
+  const [reqStatus, setReqStatus] = useState<RequestStatus>(RequestStatus.init);
 
   useEffect(() => {
     if (params.id) {
@@ -20,54 +28,93 @@ export const ItemDetails = () => {
   }, [params.id]);
 
   const getItemDetails = (itemID: string) => {
+    setReqStatus(RequestStatus.loading);
     axios
       .get(`${BASE_URL}/items/${itemID}`)
       .then((response) => {
         setItem(response.data.item);
+        setReqStatus(RequestStatus.success);
       })
       .catch((error) => {
         console.error("[ItemDetails.tsx]", error);
+        setReqStatus(RequestStatus.error);
       });
   };
 
-  return (
-    <div className="item-container">
-      {!isEmpty(item) && (
-        <Container>
-          <Row>
-            <Col lg={{ span: 6, offset: 1 }}>
-              <img
-                className="item-image"
-                src={item?.picture}
-                alt={item?.title}
-              />
-            </Col>
-            <Col lg={{ span: 4, offset: 1 }}>
-              <div className="item-info d-flex flex-column">
-                <span className="conditions">
-                  {parseItemConditions(item?.condition)} - {item?.sold_quantity}
-                </span>
-                <span className="name">{item?.title}</span>
-                <span className="price">
-                  {parseToCurrency(item?.price.amount, item?.price.currency)}
-                </span>
-                <button className="primary">Comprar</button>
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <div className="item-description-container">
-                <span className="title">Descripción del producto</span>
+  const itemDetails = () => {
+    return (
+      <>
+        {!isEmpty(item) ? (
+          <Container>
+            <Row>
+              <Col lg={{ span: 6, offset: 1 }}>
+                <img
+                  className="item-image"
+                  src={item?.picture}
+                  alt={item?.title}
+                />
+              </Col>
+              <Col lg={{ span: 4, offset: 1 }}>
+                <div className="item-info d-flex flex-column">
+                  <span className="conditions">
+                    {parseItemConditions(item?.condition)} -{" "}
+                    {item?.sold_quantity}
+                  </span>
+                  <span className="name">{item?.title}</span>
+                  <span className="price">
+                    {parseToCurrency(item?.price.amount, item?.price.currency)}
+                  </span>
+                  <button className="primary">Comprar</button>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <div className="item-description-container">
+                  <span className="title">Descripción del producto</span>
 
-                <p className="description" style={{ whiteSpace: "pre-line" }}>
-                  {item?.description}
-                </p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      )}
-    </div>
+                  <p className="description" style={{ whiteSpace: "pre-line" }}>
+                    {item?.description}
+                  </p>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        ) : (
+          <SearchResqueMessage
+            searchResqueType={SearchResqueTypes.error}
+            searchType={SearchTypes.itemDetails}
+          />
+        )}
+      </>
+    );
+  };
+
+  return (
+    <Container className="main-container">
+      <div className="item-container">
+        {(() => {
+          switch (reqStatus) {
+            case RequestStatus.init:
+            case RequestStatus.loading:
+              return <ItemDetailsSkeleton />;
+
+            case RequestStatus.success:
+              return itemDetails();
+
+            case RequestStatus.error:
+              return (
+                <SearchResqueMessage
+                  searchResqueType={SearchResqueTypes.error}
+                  searchType={SearchTypes.itemDetails}
+                />
+              );
+
+            default:
+              return null;
+          }
+        })()}
+      </div>
+    </Container>
   );
 };
