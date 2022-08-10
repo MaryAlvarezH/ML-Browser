@@ -12,7 +12,11 @@ export const CategoriesList = ({
 }: CategoriesListProps) => {
   return (
     <Container>
-      <div className="categories-container d-flex" {...props}>
+      <div
+        className="categories-container d-flex"
+        {...props}
+        data-testid="categories-list-container"
+      >
         {categories.map((i: string, index: number) => (
           <div
             key={index}
