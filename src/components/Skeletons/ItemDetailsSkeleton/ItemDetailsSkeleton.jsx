@@ -22,12 +22,12 @@ export const ItemDetailsSkeleton = ({ ...props }) => {
           <Col>
             <div className="item-description-container">
               <span className="skeleton dark title"></span>
-              <p className="description">
+              <div className="description">
                 <div className="skeleton dark title"></div>
                 <div className="skeleton"></div>
                 <div className="skeleton"></div>
                 <div className="skeleton"></div>
-              </p>
+              </div>
             </div>
           </Col>
         </Row>
