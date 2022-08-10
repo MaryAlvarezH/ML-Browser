@@ -8,6 +8,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { useEffect, useState } from "react";
 import { SearchResults as SearchResultsType } from "./utils/types";
 import { CategoriesList } from "./components/CategoriesList/CategoriesList";
+import { Helmet } from "react-helmet";
 
 function App() {
   const [showCategories, setShowCategories] = useState<boolean>(false);
@@ -28,6 +29,24 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <title>Mercado Libre - Envíos Gratis en el día</title>
+        <meta
+          name="description"
+          content="Compre productos con Envío Gratis en el día en Mercado Libre. Encuentre miles de marcas y productos a precios increíbles."
+          data-head-react="true"
+        />
+        <meta
+          property="og:image"
+          content="https://http2.mlstatic.com/static/org-img/homesnw/mercado-libre.png?v=2"
+          data-head-react="true"
+        />
+        <meta property="og:url" content="pets.abc" />
+        <meta property="og:site_name" content="Mercado Libre" />
+        <meta property="og:locale" content="es-AR" />
+        <meta property="og:locale:alternate" content="es_ES" />
+      </Helmet>
+
       <Navbar />
 
       {showCategories && <CategoriesList categories={categories} />}
