@@ -20,6 +20,7 @@ export const ItemPreview = ({ item, ...props }: ItemPreviewProps) => {
       className="item-preview-container"
       {...props}
       onClick={redirectToItemDetails}
+      data-testid="item-preview-container"
     >
       <div className="d-flex">
         <img className="item-image" src={item.picture} alt={item.id} />
