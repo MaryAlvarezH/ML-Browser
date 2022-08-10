@@ -12,7 +12,7 @@ type SearchInput = {
 };
 
 export const SearchBox = ({ ...props }) => {
-  const { register, handleSubmit } = useForm<SearchInput>();
+  const { register, handleSubmit, reset } = useForm<SearchInput>();
   const [search, setSearch] = useState<string>();
 
   const navigate = useNavigate();
@@ -21,7 +21,11 @@ export const SearchBox = ({ ...props }) => {
   useEffect(() => {
     const search: any = searchParams.get("search");
     setSearch(search);
-  }, [searchParams]);
+
+    if (!search) {
+      reset();
+    }
+  }, [searchParams, reset]);
 
   const onSubmit: SubmitHandler<SearchInput> = (data) => {
     const { search } = data;
@@ -46,9 +50,14 @@ export const SearchBox = ({ ...props }) => {
         className="search-input"
         defaultValue={search}
         placeholder="Nunca dejes de buscar"
-        {...register("search")}
+        {...register("search", { required: true })}
+        data-testid="search-input"
       />
-      <button className="search-button" type="submit">
+      <button
+        className="search-button"
+        type="submit"
+        data-testid="search-button"
+      >
         <span className="search-icon"></span>
       </button>
     </form>
