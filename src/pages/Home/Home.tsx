@@ -26,7 +26,9 @@ export const Home = () => {
               <span className="payment-data-title">
                 Hasta 3 meses sin intereses con:
               </span>
-              <a className="payment-data-subtitle">Ver condiciones</a>
+              <a className="payment-data-subtitle" href="/#">
+                Ver condiciones
+              </a>
             </div>
             <span className="bank-logo"></span>
           </div>
@@ -42,7 +44,9 @@ export const Home = () => {
 
             <div className="d-flex flex-column">
               <span className="payment-data-title">Más medios de pago</span>
-              <a className="payment-data-subtitle">Ver todos</a>
+              <a className="payment-data-subtitle" href="/#">
+                Ver todos
+              </a>
             </div>
           </div>
         </div>
