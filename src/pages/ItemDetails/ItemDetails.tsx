@@ -84,13 +84,23 @@ export const ItemDetails = () => {
                 </div>
               </Col>
             </Row>
+
             <Row>
               <Col>
                 <div className="item-description-container">
                   <span className="title">Descripción del producto</span>
-                  <p className="description" style={{ whiteSpace: "pre-line" }}>
-                    {item?.description}
-                  </p>
+                  {item?.description ? (
+                    <p
+                      className="description"
+                      style={{ whiteSpace: "pre-line" }}
+                    >
+                      {item?.description}
+                    </p>
+                  ) : (
+                    <p className="description">
+                      No hay descripción para este producto
+                    </p>
+                  )}
                 </div>
               </Col>
             </Row>
