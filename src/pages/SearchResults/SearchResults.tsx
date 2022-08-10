@@ -43,7 +43,7 @@ export const SearchResults = ({ onSearchResults }: SearchResultsProps) => {
         console.log("[SearchResults.tsx]", error);
         setReqStatus(RequestStatus.error);
       });
-  }, [searchParams.get("search")]);
+  }, [searchParams]);
 
   const itemsPreviewSkeletons = () => {
     const previewSkeletons = [0, 1, 2, 4];
@@ -60,7 +60,10 @@ export const SearchResults = ({ onSearchResults }: SearchResultsProps) => {
     return (
       <>
         {!isEmpty(items) ? (
-          <div className="items-container d-flex flex-column">
+          <div
+            className="items-container d-flex flex-column"
+            data-testid="items-container"
+          >
             {items?.map((i: ItemPreviewType) => {
               return <ItemPreview key={i.id} item={i} />;
             })}
@@ -69,6 +72,7 @@ export const SearchResults = ({ onSearchResults }: SearchResultsProps) => {
           <SearchResqueMessage
             searchResqueType={SearchResqueTypes.emptyData}
             searchType={SearchTypes.items}
+            data-testid="not-found-items-container"
           />
         )}
       </>
