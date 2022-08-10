@@ -29,10 +29,12 @@ export const ItemDetails = () => {
 
   const getItemDetails = (itemID: string) => {
     setReqStatus(RequestStatus.loading);
+
     axios
       .get(`${BASE_URL}/items/${itemID}`)
       .then((response) => {
-        setItem(response.data.item);
+        const { data } = response;
+        setItem(data.item);
         setReqStatus(RequestStatus.success);
       })
       .catch((error) => {
@@ -45,25 +47,39 @@ export const ItemDetails = () => {
     return (
       <>
         {!isEmpty(item) ? (
-          <Container>
+          <Container data-testid="item-details-content">
             <Row>
               <Col lg={{ span: 6, offset: 1 }}>
                 <img
                   className="item-image"
+                  data-testid="item-image"
                   src={item?.picture}
                   alt={item?.title}
                 />
               </Col>
               <Col lg={{ span: 4, offset: 1 }}>
                 <div className="item-info d-flex flex-column">
-                  <span className="conditions">
-                    {parseItemConditions(item?.condition)} -{" "}
-                    {item?.sold_quantity}
+                  <p className="conditions" data-testid="item-conditions">
+                    <span>{parseItemConditions(item?.condition)} - </span>
+                    <span data-testid="item-quantity">
+                      {item?.sold_quantity}
+                    </span>
+                  </p>
+                  <span className="name" data-testid="item-title">
+                    {item?.title}
                   </span>
-                  <span className="name">{item?.title}</span>
-                  <span className="price">
-                    {parseToCurrency(item?.price.amount, item?.price.currency)}
-                  </span>
+                  <div className="item-main-info">
+                    <span className="price">
+                      {parseToCurrency(
+                        item?.price.amount,
+                        item?.price.currency
+                      )}
+                    </span>
+                    {item?.free_shipping && (
+                      <span className="free-shipping"></span>
+                    )}
+                  </div>
+
                   <button className="primary">Comprar</button>
                 </div>
               </Col>
@@ -72,7 +88,6 @@ export const ItemDetails = () => {
               <Col>
                 <div className="item-description-container">
                   <span className="title">Descripción del producto</span>
-
                   <p className="description" style={{ whiteSpace: "pre-line" }}>
                     {item?.description}
                   </p>
@@ -82,6 +97,7 @@ export const ItemDetails = () => {
           </Container>
         ) : (
           <SearchResqueMessage
+            data-testid="item-error-content"
             searchResqueType={SearchResqueTypes.error}
             searchType={SearchTypes.itemDetails}
           />
@@ -91,13 +107,13 @@ export const ItemDetails = () => {
   };
 
   return (
-    <Container className="main-container">
+    <Container className="main-container item-details-container">
       <div className="item-container">
         {(() => {
           switch (reqStatus) {
             case RequestStatus.init:
             case RequestStatus.loading:
-              return <ItemDetailsSkeleton />;
+              return <ItemDetailsSkeleton data-testid="item-details-loader" />;
 
             case RequestStatus.success:
               return itemDetails();
