@@ -20,13 +20,13 @@ export const SearchResqueMessage = ({
               <div className="search-resque-details d-flex justify-content-center mt-4">
                 <FcSearch className="icon" />
                 {searchType === SearchTypes.items ? (
-                  <p>
+                  <div data-testid="empty-data-for-items-content">
                     <h4>No hay publicaciones que coincidan con tu búsqueda.</h4>
                     <ul>
                       <li>Revisa la ortografía de la palabra.</li>
                       <li>Utiliza palabras más genéricas o menos palabras.</li>
                     </ul>
-                  </p>
+                  </div>
                 ) : null}
               </div>
             );
@@ -36,12 +36,12 @@ export const SearchResqueMessage = ({
               <div className="search-resque-details d-flex justify-content-center mt-4">
                 <FcHighPriority className="icon" />
                 {searchType === SearchTypes.items ? (
-                  <p>
+                  <p data-testid="error-for-items-content">
                     Lo sentimos, ocurrió un error al consultar los productos.
                     Por favor, intenta nuevamente.
                   </p>
                 ) : (
-                  <p>
+                  <p data-testid="error-for-item-details-content">
                     Lo sentimos, parece ser que el producto que estás buscando
                     no existe. <br /> Si copiaste la URL asegúrante que este
                     bien escrita.
