@@ -12,23 +12,33 @@
     @media screen and (max-width: 600px) {
       gap: 1rem;
     }
-  }
 
-  .logo {
-    background-image: url("../../assets/images/Logo_ML@2x.png.png");
-    background-size: 3.75rem 2.5rem;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    display: block;
-    flex-shrink: 0;
-    height: 2.5rem;
-    width: 3.75rem;
+    button.logo-button {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      outline: inherit;
+      padding: 0;
 
-    @media screen and (max-width: 600px) {
-      background-image: url("../../assets/images/Logo_ML.png");
-      background-size: 3.313rem 2.25rem;
-      height: 2.25rem;
-      width: 3.313rem;
+      span.logo {
+        background-image: url("../../assets/images/Logo_ML@2x.png.png");
+        background-size: 3.75rem 2.5rem;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        display: block;
+        flex-shrink: 0;
+        height: 2.5rem;
+        width: 3.75rem;
+
+        @media screen and (max-width: 600px) {
+          background-image: url("../../assets/images/Logo_ML.png");
+          background-size: 3.313rem 2.25rem;
+          height: 2.25rem;
+          width: 3.313rem;
+        }
+      }
     }
   }
 }

@@ -9,11 +9,18 @@ export const Navbar = ({ ...props }) => {
   const redirectToHome = () => {
     navigate("/");
   };
+
   return (
     <div className="navbar-container" {...props}>
       <Container>
         <div className="content">
-          <a className="logo" onClick={redirectToHome} />
+          <button
+            className="logo-button"
+            onClick={redirectToHome}
+            data-testid="home-link"
+          >
+            <span className="logo"></span>
+          </button>
           <SearchBox />
         </div>
       </Container>
