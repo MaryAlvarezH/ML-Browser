@@ -20,12 +20,15 @@ This project include the following pages:
 ## Mobile version
 
 1. Home
+
    ![Home pageview](https://user-images.githubusercontent.com/38545126/184041943-6341053f-6885-4f21-8831-adaa39113633.png)
 
 2. Search results
+
    ![Search results pageview](https://user-images.githubusercontent.com/38545126/184041946-bcdf084b-6644-40b3-9b8b-e762289de32e.png)
 
 3. Product details
+
    ![Product details pageview](https://user-images.githubusercontent.com/38545126/184041948-2f167bfb-c634-496e-a7c6-488f682aa2e7.png)
 
 ## Extra components
