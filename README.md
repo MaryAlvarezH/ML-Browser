@@ -1,8 +1,58 @@
-# Getting Started with Create React App
+# practice Test - Frontend (Mercado libre)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project include the following pages:
 
-## Available Scripts
+1. **Home** `/` -> To search a product or brand from search box
+2. **Serch results** `/items?search=` -> To show four products of the made sarch
+3. **Product details** `/items/:id` -> To show details for specific product
+
+## Desktop version
+
+1. Home
+   ![Home pageview](https://user-images.githubusercontent.com/38545126/184041830-31c81155-4a61-48c9-8767-9e320fa7214c.png)
+
+2. Search results
+   ![Search results pageview](https://user-images.githubusercontent.com/38545126/184041839-558970ec-ba28-48e4-80ff-201a94be8b63.png)
+
+3. Product details
+   ![Product details pageview](https://user-images.githubusercontent.com/38545126/184041843-621eb069-8bb1-48b8-b263-9304accdb717.png)
+
+## Mobile version
+
+1. Home
+   ![Home pageview](https://user-images.githubusercontent.com/38545126/184041943-6341053f-6885-4f21-8831-adaa39113633.png)
+
+2. Search results
+   ![Search results pageview](https://user-images.githubusercontent.com/38545126/184041946-bcdf084b-6644-40b3-9b8b-e762289de32e.png)
+
+3. Product details
+   ![Product details pageview](https://user-images.githubusercontent.com/38545126/184041948-2f167bfb-c634-496e-a7c6-488f682aa2e7.png)
+
+## Extra components
+
+In order to improve the UX the following components were added:
+
+1. Message when there aren't any results for the search
+   ![message desktop](https://user-images.githubusercontent.com/38545126/184042462-73aa4a58-5d32-4a4e-86a4-8102dac0873a.png)
+   ![message mobile](https://user-images.githubusercontent.com/38545126/184042457-4ed4da5c-b4ca-4eb4-8523-8ef5bf750833.png)
+
+2. Error message when there's an error getting product details
+   ![error desktop](https://user-images.githubusercontent.com/38545126/184042466-23447e3c-bbfb-4d1a-a7c0-d1692624e84a.png)
+   ![error mobile](https://user-images.githubusercontent.com/38545126/184042470-83f675d2-2bba-4889-877d-78d1f50afac1.png)
+
+3. Loaders for **Search result** page:
+   ![loader desktop](https://user-images.githubusercontent.com/38545126/184042505-2414d104-0e03-4d2a-8121-72944559fac4.png)
+   ![loader mobile](https://user-images.githubusercontent.com/38545126/184042508-00a3c406-ed6a-46fe-9968-a8f671d6f445.png)
+
+4. Loaders for **Product details** page:
+   ![loader desktop](https://user-images.githubusercontent.com/38545126/184042510-16a67292-d70c-413b-8581-e79934888d5e.png)
+   ![loader mobile](https://user-images.githubusercontent.com/38545126/184042509-9f759c00-48cf-42d2-afcc-f4e934f979e6.png)
+
+### Dependencies
+
+The project uses a server side, this server is hosted in [Heroku](https://www.heroku.com/free) so you will be able to start the project without running the server side, but if you want it you can run it and use it by replacing the value of the **BASE_URL** constant declared in `/src/ultis/constants` with the value of `http://localhost:3001`
+
+[Go to backend repo](https://github.com/MaryAlvarezH/ML-server)
 
 In the project directory, you can run:
 
@@ -29,18 +79,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Author
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+María Isabel Álvarez Hernández
