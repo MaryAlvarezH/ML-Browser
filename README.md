@@ -1,4 +1,4 @@
-# practice Test - Frontend (Mercado libre)
+# Practice Test - Frontend (Mercado libre)
 
 This project include the following pages:
 
